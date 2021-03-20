@@ -1,15 +1,21 @@
-from time import sleep_ms
+from utime import sleep_ms
 from machine import Pin
+import sys
 
-led=Pin(2,Pin.OUT) #create LED object from pin2,Set Pin2 to output
+USER_LED = 2
+
+led=Pin(USER_LED,Pin.OUT)   #create LED object on the user LED on the CPU card
 try:
     while True:
-        led.value(1)        #Set led turn on
+        led.on()            #Set led turn on
         sleep_ms(1000)
-        led.value(0)        #Set led turn off
+        led.off()           #Set led turn off
         sleep_ms(1000)
-except:
-    pass
+
+except KeyboardInterrupt:
+    print("Keyboard Interrupt resetting LED")
+    led.off()
+    sys.exit()
 
 
 
