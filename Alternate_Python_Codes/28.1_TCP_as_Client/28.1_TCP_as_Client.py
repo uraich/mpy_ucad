@@ -2,9 +2,9 @@ import network
 import socket
 import time
 
-ssidRouter     =  "SSID of your wlan"   #Enter the router name
-passwordRouter =  "your wlan password"  #Enter the router password
-host           =  "192.168.0.x"         #input the remote server, find the IP address with findIP.py
+ssidRouter     =  "WLAN18074253"        #Enter the router name
+passwordRouter =  "Q4k6V35sFauw"        #Enter the router password
+host           =  "192.168.0.20 "       #input the remote server, find the IP address with findIP.py
 port           =   5000                 #input the remote port
 
 
@@ -35,7 +35,14 @@ connectWifi(ssidRouter,passwordRouter)
   
 client_socket = socket.socket()  # instantiate
 print("Connecting to ",host,":",port)
-client_socket.connect((host, port))  # connect to the server
+try:
+  client_socket.connect((host, port))  # connect to the server
+except OSError as error:
+        print("Connection failed, please check IP address and port number")
+        sys.exit()
+
+data = client_socket.recv(1024).decode()  # receive response
+print(data)
 
 message = input(" -> ")  # take input
 
