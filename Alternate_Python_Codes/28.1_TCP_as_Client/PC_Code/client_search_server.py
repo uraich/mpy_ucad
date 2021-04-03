@@ -21,6 +21,10 @@ def client_program():
         print("No server found, giving up")
         sys.exit()
         
+    # print connection message from server
+    data = client_socket.recv(1024).decode()  # receive response
+    print(data)
+    
     message = input(" -> ")  # take input
     
     while message.lower().strip() != 'bye':

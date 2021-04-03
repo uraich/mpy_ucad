@@ -7,8 +7,15 @@ def client_program(host_ip):
 
     client_socket = socket.socket()  # instantiate
     print("Connecting to ",host,":",port)
-    client_socket.connect((host_ip, port))  # connect to the server
-
+    try:
+        client_socket.connect((host_ip, port))  # connect to the server
+    except OSError as error:
+        print("Connection failed, please check IP address and port number")
+        sys.exit()
+        
+    data = client_socket.recv(1024).decode()  # receive response
+    print(data)
+    
     message = input(" -> ")  # take input
 
     while message.lower().strip() != 'bye':
