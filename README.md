@@ -1,5 +1,4 @@
-# mpy_ucad
-micropython firmware for ucad
+# micropython firmware for UCAD (Université Cheikh Anta Diop, Dakar, Sénégal)
 
 Clone this repository[](url)
 Make sure esp32_erase.sh and esp32_flash.sh are executable. If not: chmod +x esp32*.sh
