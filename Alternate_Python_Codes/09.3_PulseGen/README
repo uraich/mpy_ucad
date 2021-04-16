@@ -1,0 +1,5 @@
+There are 2 versions of the same program:
+pulseGenGUI.py reads the designer file pulseGen.ui
+pulseGenGUIV2.py imports pulseGen_Ui.py which has been automatically created from pulseGen.ui using:
+pyuic5 pulseGen.ui -o pulseGen_Ui.py
+The latter method allows to easily create a binary with all libraries included using pyinstaller 

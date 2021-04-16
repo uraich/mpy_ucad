@@ -1,6 +1,6 @@
 import network
 import socket
-import time
+import time,sys
 
 ssidRouter     =  "WLAN18074253"        #Enter the router name
 passwordRouter =  "Q4k6V35sFauw"        #Enter the router password
@@ -39,6 +39,7 @@ try:
   client_socket.connect((host, port))  # connect to the server
 except OSError as error:
         print("Connection failed, please check IP address and port number")
+        print("Is the server started?")
         sys.exit()
 
 data = client_socket.recv(1024).decode()  # receive response

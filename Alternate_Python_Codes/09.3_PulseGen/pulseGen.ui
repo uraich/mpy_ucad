@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>810</width>
+    <height>456</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Uli's Pulse Generator</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>30</y>
+      <width>535</width>
+      <height>361</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QtCharts::QChartView" name="generator_screen">
+       <property name="frameShape">
+        <enum>QFrame::Panel</enum>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QGroupBox" name="genControlBox">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>30</y>
+      <width>211</width>
+      <height>251</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Generator Controls</string>
+    </property>
+    <widget class="QDial" name="pulse_height_dial">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>30</y>
+       <width>50</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <number>50</number>
+     </property>
+     <property name="maximum">
+      <number>200</number>
+     </property>
+     <property name="wrapping">
+      <bool>false</bool>
+     </property>
+     <property name="notchTarget">
+      <double>10.000000000000000</double>
+     </property>
+     <property name="notchesVisible">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QWidget" name="layoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>3</x>
+       <y>30</y>
+       <width>141</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QLabel" name="pulse_height_label">
+        <property name="text">
+         <string>Pulse Height</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="pulse_height_text">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>90</y>
+       <width>211</width>
+       <height>158</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_4">
+      <item>
+       <widget class="QLabel" name="pulse_shape_label">
+        <property name="text">
+         <string>Pulse Shape</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="pulse_shape_combo"/>
+      </item>
+      <item>
+       <widget class="QLabel" name="genfreq_label">
+        <property name="text">
+         <string>Generator Sample Freq</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="gen_freq_combo"/>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Display Sampling Freq </string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="display_freq_combo">
+        <property name="currentText">
+         <string/>
+        </property>
+        <property name="maxCount">
+         <number>7</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>290</y>
+      <width>211</width>
+      <height>114</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLabel" name="ip_label">
+         <property name="text">
+          <string>IP address of Scope Server</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="server_ip_text">
+         <property name="text">
+          <string>192.168.0.xxx</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QPushButton" name="connect_pb">
+       <property name="text">
+        <string>Connect to Pulse Generator</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="start_stop_pb">
+       <property name="text">
+        <string>Start Pulse Generation</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>810</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionQuit"/>
+   </widget>
+   <addaction name="menuFile"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionQuit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QtCharts::QChartView</class>
+   <extends>QGraphicsView</extends>
+   <header location="global">QtCharts/QChartView&gt;
+#include &lt;QtCharts/chartsnamespace.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../../09.2_Oscilloscope/Qt5/Oscilloscope/icons.qrc"/>
+ </resources>
+ <connections/>
+</ui>
