@@ -1,8 +1,0 @@
-<!DOCTYPE RCC>
-<RCC version="1.0">
-    <qresource prefix="icons">
-        <file alias="penguin.png">animal-penguin.png</file>
-        <file alias="monkey.png">animal-monkey.png</file>
-    </qresource>
-</RCC>
-
