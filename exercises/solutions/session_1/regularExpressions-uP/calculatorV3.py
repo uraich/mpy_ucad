@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/lv_micropython
 #
 # try regular expressions to provide a parser for the calculator
 #
@@ -34,8 +34,10 @@ while True:
     if calcMatch:
         # for i in range(10):
             # print(i," ",calcMatch.group(i))
-        print(calcMatch.group(1)," ",calcMatch.group(5)," ",
-              calcMatch.group(6)," = ",eval(calc))
-
+        try:
+            print(calcMatch.group(1)," ",calcMatch.group(5)," ",
+                  calcMatch.group(6)," = ",eval(calc))
+        except Exception as e:
+            print("Error: ",e)
     else:
         print("Bad input, please try again")
