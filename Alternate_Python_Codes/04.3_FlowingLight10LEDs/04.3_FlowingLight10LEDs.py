@@ -1,6 +1,6 @@
 # This is a slightly modified version of Freenove's 04.2FlowingLight.py example
 # It has been extended from 8 LEDs to all 10 LEDs of the LED bar.
-# The particular problem here is that only 8 PWM channels are available om MicroPython.
+# The particular problem here is that only 8 PWM channels are available on the ESP32.
 # Therefore 8 Leds are lighted with the light intensity given by the PWM duty cycle.
 # The pwm channels for which the duty cycle value is zero are de-initialized to reduce the number
 # of used PWM channels to eight.
