@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/fallingEdge.png</file>
+        <file>icons/risingEdge.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>428</width>
+    <height>297</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Uli's Voltmeter</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QwtDial" name="Dial">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>20</y>
+      <width>200</width>
+      <height>231</height>
+     </rect>
+    </property>
+    <property name="upperBound">
+     <double>3.300000000000000</double>
+    </property>
+    <property name="value">
+     <double>1.500000000000000</double>
+    </property>
+    <property name="lineWidth">
+     <number>4</number>
+    </property>
+    <property name="origin">
+     <double>180.000000000000000</double>
+    </property>
+    <property name="maxScaleArc">
+     <double>180.000000000000000</double>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdNumber">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>160</y>
+      <width>131</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="digitCount">
+     <number>4</number>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>20</y>
+      <width>163</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>IP address of Voltmeter
+Server</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="ip_address_text">
+       <property name="text">
+        <string>192.168.0.xxx</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="connect_pb">
+       <property name="text">
+        <string>Connect to Server</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>428</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionQuit"/>
+   </widget>
+   <addaction name="menuFile"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionQuit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QwtDial</class>
+   <extends>QWidget</extends>
+   <header>qwt_dial.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
