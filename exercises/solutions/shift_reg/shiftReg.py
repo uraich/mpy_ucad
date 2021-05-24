@@ -29,25 +29,16 @@ class ShiftReg():
 
     def transfer2reg(self):
         # transfer the data to the output register
-        #self.reg_clk.off()
-        #sleep_ms(1)
         self.reg_clk.on()       
-        sleep_ms(1)
         self.reg_clk.off()
-        sleep_ms(1)
         
     def pulse_ser_clk(self):
         # pulse the serial clk
-        #self.ser_clk.off()
-        # sleep_ms(1)
         self.ser_clk.on()       
-        # sleep_ms(1)
         self.ser_clk.off()
-        # sleep_ms(1)
 
     def clear(self):
         self.clr.off()      # clear the shift register
-        # sleep_ms(1)
         self.clr.on()
         self.transfer2reg()
     
@@ -57,8 +48,7 @@ class ShiftReg():
             self.ser_in.on()
         else:
             self.ser_in.off()
-        print(bit)
-        # sleep_ms(1)             # let the data settle
+        #print(bit)
         
         self.pulse_ser_clk()
         shift_reg.transfer2reg()
@@ -67,6 +57,7 @@ class ShiftReg():
         if val < 0 or val > 1023:
             print ("Allowed values: 0..1023")
             return
+        self.enable_output(False) # disable output until output register is ready 
         mask = 0x200
         for _ in range(10):
             if val & mask:
@@ -74,6 +65,8 @@ class ShiftReg():
             else:
                 self.shift(0)
             mask >>=1
+        self.enable_output(True)
+        
 #
 # main program
 #
@@ -106,4 +99,22 @@ print("Display 0x155")
 shift_reg.display_val(0x155)
 sleep_ms(1000)
 
+print("Flowing Water Light")
+
+shift_reg.clear()
+shift_reg.shift(1)               # shift a 1 into the first LED
+sleep_ms(200)
+
+for _ in range(10):
+    # move from right to left
+    for i in range(9):           # shifting in zeroes moves the lighted LED by 1 pos
+        shift_reg.shift(0)
+        sleep_ms(200)
+    data = 0x100
+    #move from left to right
+    for i in range(9):
+        shift_reg.display_val(data)
+        data >>=1
+        sleep_ms(200)
+print("All done")        
 shift_reg.clear()
