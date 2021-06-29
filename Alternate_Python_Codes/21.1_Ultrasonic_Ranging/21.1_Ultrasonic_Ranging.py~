@@ -1,0 +1,40 @@
+from machine import Pin
+from utime import ticks_us, ticks_diff, sleep_us, sleep_ms
+from micropython import const
+
+TRIG = const(5)
+ECHO = const(23)
+SPEED_IN_AIR = const(330)      
+
+class HC_SR04(object):
+    def __init__(self,trig=TRIG,echo=ECHO):
+        self.trig = Pin(trig,Pin.OUT)
+        self.echo = Pin(echo,Pin.IN,Pin.PULL_UP)
+
+    # trigger a measurement
+    
+    def trigger(self):
+        self.trig.value(1)      # trigger a measurement
+        sleep_us(10)            # keep the trigger signal high for 10 us
+        self.trig.value(0)
+
+    # read the length of the echo signal
+    
+    def get_echo(self):
+        while (self.echo.value() == 0):
+            pass                # wait until the echo signal goes high
+        start = ticks_us()
+        while (self.echo.value() == 1):
+            pass
+        stop = ticks_us()
+        signal_length = ticks_diff(stop,start)
+        print("signal length [us]: ",signal_length)
+        return signal_length
+    
+    def measure(self):
+        self.trigger()
+        return self.get_echo()
+
+hc_sr04 = HC_SR04()
+while True:
+    hc_sr04.measure()
